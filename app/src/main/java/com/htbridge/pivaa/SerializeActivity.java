@@ -19,7 +19,7 @@ import com.htbridge.pivaa.handlers.database.DatabaseRecord;
 
 import java.util.ServiceLoader;
 
-public class SerializeActivity extends AppCompatActivity {
+public class SerializeActivity extends SecureBaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

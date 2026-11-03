@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.htbridge.pivaa.handlers.Encryption;
 import com.htbridge.pivaa.handlers.MenuHandler;
 
-public class EncryptionActivity extends AppCompatActivity {
+public class EncryptionActivity extends SecureBaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -17,7 +17,7 @@ import com.htbridge.pivaa.handlers.MenuHandler;
 
 import java.util.ArrayList;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends SecureBaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

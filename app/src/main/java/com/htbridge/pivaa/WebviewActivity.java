@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.htbridge.pivaa.handlers.MenuHandler;
 
-public class WebviewActivity extends AppCompatActivity {
+public class WebviewActivity extends SecureBaseActivity {
     private WebView myWebView;
     private Configuration config;
 
@@ -49,7 +49,7 @@ public class WebviewActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowFileAccess(true);
         webSettings.setPluginState(WebSettings.PluginState.ON);
-        webSettings.setAllowUniversalAccessFromFileURLs(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(false);
 
 
         // loading configuration URL and showing on UI

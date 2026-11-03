@@ -22,7 +22,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 
-public class LoadCodeActivity extends AppCompatActivity {
+public class LoadCodeActivity extends SecureBaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

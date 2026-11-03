@@ -25,7 +25,7 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Date;
 
-public class BroadcastReceiverActivity extends AppCompatActivity {
+public class BroadcastReceiverActivity extends SecureBaseActivity {
     private WebView myWebView;
     private String location;
 
@@ -56,7 +56,7 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
         // setting up configuration for WebView
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowFileAccess(true);
-        webSettings.setAllowUniversalAccessFromFileURLs(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(false);
 
         location = this.getExternalFilesDir(null) + "/broadcast.html";
         myWebView.loadUrl("file://" + location);
@@ -86,6 +86,7 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
 
                 Intent intent = new Intent();
                 intent.setAction("service.vulnerable.vulnerableservice.LOG");
+                intent.setPackage(BroadcastReceiverActivity.this.getPackageName());
                 intent.putExtra("data", input_broadcast);
                 intent.putExtra("location", location);
 
