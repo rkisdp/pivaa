@@ -19,7 +19,7 @@ import com.htbridge.pivaa.handlers.MenuHandler;
 
 import java.util.ArrayList;
 
-public class DatabaseActivity extends AppCompatActivity {
+public class DatabaseActivity extends SecureBaseActivity {
     DatabaseHelper db;
 
     @Override

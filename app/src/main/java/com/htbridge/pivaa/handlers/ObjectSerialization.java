@@ -3,6 +3,9 @@ package com.htbridge.pivaa.handlers;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,18 +44,19 @@ public class ObjectSerialization implements Serializable {
      */
     public void saveObject() {
         try {
-            File f = new File(this.location);
-            FileOutputStream fos = new FileOutputStream(f);
-            ObjectOutputStream os = new ObjectOutputStream(fos);
-            os.writeObject(this);
-            os.close();
-            fos.close();
+            JSONObject json = new JSONObject();
+            json.put("proof", getProof());
+            try (FileOutputStream fos = new FileOutputStream(new File(this.location))) {
+                fos.write(json.toString().getBytes("UTF-8"));
+            }
 
             Log.i("htbridge", "[ SAVE ] Serialization SUCCESS!");
             return;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
@@ -65,13 +69,12 @@ public class ObjectSerialization implements Serializable {
     public void loadObject() {
         try {
             File f = new File(this.location);
-            FileInputStream fis = new FileInputStream(f);
-            ObjectInputStream is = new ObjectInputStream(fis);
-            ObjectSerialization des = (ObjectSerialization) is.readObject();
-            is.close();
-            fis.close();
-
-            this.setProof(des.getProof());
+            byte[] data = new byte[(int) f.length()];
+            try (FileInputStream fis = new FileInputStream(f)) {
+                fis.read(data);
+            }
+            JSONObject json = new JSONObject(new String(data, "UTF-8"));
+            this.setProof(json.getString("proof"));
 
             Log.i("htbridge", "[ LOAD ] Serialization SUCCESS!");
             return;
@@ -79,7 +82,7 @@ public class ObjectSerialization implements Serializable {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 

@@ -171,7 +171,6 @@ public class Authentication extends AppCompatActivity {
                 String line = null;
 
                 while ((line = reader.readLine()) != null) {
-                    Log.i("htbridge", line);
                     sb.append(line).append("\n");
                 }
                 reader.close();

@@ -15,7 +15,7 @@ import android.widget.EditText;
 import com.htbridge.pivaa.handlers.MenuHandler;
 import com.htbridge.pivaa.handlers.VulnerableService;
 
-public class ServiceActivity extends AppCompatActivity {
+public class ServiceActivity extends SecureBaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

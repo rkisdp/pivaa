@@ -38,7 +38,7 @@ public final class Encryption {
      * @return
      */
     public static String rng() {
-        Random rnd = new Random();
+        java.security.SecureRandom rnd = new java.security.SecureRandom();
         int n = rnd.nextInt(100000) + 1;
 
         return Integer.toString(n);

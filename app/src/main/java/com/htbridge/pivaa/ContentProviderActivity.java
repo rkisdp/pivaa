@@ -23,7 +23,7 @@ import android.widget.TextView;
 import com.htbridge.pivaa.handlers.MenuHandler;
 import com.htbridge.pivaa.handlers.VulnerableContentProvider;
 
-public class ContentProviderActivity extends AppCompatActivity {
+public class ContentProviderActivity extends SecureBaseActivity {
     private WebView myWebView;
 
     @Override

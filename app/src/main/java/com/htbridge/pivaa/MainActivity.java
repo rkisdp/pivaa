@@ -34,7 +34,7 @@ import com.htbridge.pivaa.handlers.database.DatabaseRecord;
 /**
  * A login screen that offers login via username/password.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SecureBaseActivity {
 
     /**
      * Id to identity READ_CONTACTS permission request.
